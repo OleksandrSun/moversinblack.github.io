@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+header {
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(to right, #111, #000);
+  animation: fadeIn 1s ease-in;
+}
+header h1 {
+  font-size: 42px;
+  color: gold;
+  animation: slideDown 1s ease-out;
+}
+section.hero {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1604014238170-5f56c03cda5f') no-repeat center center/cover;
+  min-height: 100vh;
+  padding: 80px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+.hero h2, .hero p {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+.hero.visible h2, .hero.visible p {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-down {
+  margin-top: 40px;
+  font-size: 24px;
+  color: gold;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+.booking-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 40px;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+.booking-form.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+label {
+  display: block;
+  margin: 10px 0 5px;
+  color: gold;
+}
+input, textarea, button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+}
+button {
+  background-color: gold;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background-color: #d4af37;
+}
+.contact-floating {
+  position: fixed;
+  left: 20px;
+  background: gold;
+  color: #000;
+  padding: 12px 18px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  z-index: 1000;
+  transition: background 0.3s;
+}
+.contact-floating:hover {
+  background: #d4af37;
+}
+.contact-whatsapp {
+  bottom: 70px;
+}
+.contact-email {
+  bottom: 20px;
+}
+footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #000;
+  color: #888;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes slideDown {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 30px;
+  }
+  .booking-form {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movers in Black</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Movers in Black</h1>
+    <img src="logo.png" alt="Movers in Black Logo" style="max-width: 200px; margin-top: 20px;">
+  </header>
+  <section class="hero" id="hero">
+    <h2>Premium Moving, Reinvented</h2>
+    <p>Luxury. Precision. Confidentiality. Welcome to the black label of moving services.</p>
+    <div class="scroll-down" onclick="document.getElementById('form').scrollIntoView({behavior: 'smooth'});">↓</div>
+  </section>
+  <section class="booking-form" id="form">
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required>
+      <label for="date">Moving Date</label>
+      <input type="date" id="date" name="date" required>
+      <label for="details">Move Details</label>
+      <textarea id="details" name="details" rows="4"></textarea>
+      <button type="submit">Book Now</button>
+    </form>
+  </section>
+  <a class="contact-floating contact-whatsapp" href="https://wa.me/19259178918" target="_blank">📱 WhatsApp Us</a>
+  <a class="contact-floating contact-email" href="mailto:movers.inblack.customerservice@gmail.com">✉️ Email Us</a>
+  <footer>
+    &copy; 2025 Movers in Black. All rights reserved.
+  </footer>
+  <script>
+    const hero = document.getElementById('hero');
+    const form = document.getElementById('form');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.target.id === 'hero' && entry.isIntersecting) {
+          hero.classList.add('visible');
+        }
+        if (entry.target.id === 'form' && entry.isIntersecting) {
+          form.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(hero);
+    observer.observe(form);
+  </script>
+</body>
+</html>
